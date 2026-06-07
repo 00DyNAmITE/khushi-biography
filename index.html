@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi Bhardwaj — A Story Worth Telling 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f9e4e8;
+    --rose: #e8a0b0;
+    --deep-rose: #c4627a;
+    --petal: #fdf0f3;
+    --sage: #8fad8f;
+    --sage-light: #d4e8d4;
+    --cream: #fdf8f5;
+    --warm: #f5ebe0;
+    --text: #3a2a2e;
+    --muted: #8a6a72;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* Floral background pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(232,160,176,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(232,160,176,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(249,228,232,0.2) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .petal-ring {
+    font-size: 3rem;
+    letter-spacing: 0.3em;
+    animation: spin 30s linear infinite;
+    display: block;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--deep-rose);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-name span {
+    color: var(--deep-rose);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-dob {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--deep-rose);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--deep-rose);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    color: var(--rose);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    margin: 1rem 0 3rem;
+    opacity: 0.5;
+  }
+
+  /* ── ABOUT GRID ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+  }
+
+  .about-card {
+    background: white;
+    border: 1px solid rgba(232,160,176,0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(196,98,122,0.12);
+  }
+
+  .about-card .icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .about-card .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .about-card .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  /* ── ACADEMICS ── */
+  .academics-section {
+    background: linear-gradient(135deg, #fdf0f3, #fdf8f5);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(232,160,176,0.25);
+  }
+
+  .grades-row {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .grade-badge {
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(232,160,176,0.3);
+    min-width: 130px;
+    transition: transform 0.3s;
+  }
+
+  .grade-badge:hover { transform: scale(1.05); }
+
+  .grade-badge .class {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .grade-badge .percent {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--deep-rose);
+    line-height: 1;
+  }
+
+  .grade-badge .note {
+    font-size: 0.7rem;
+    color: var(--sage);
+    margin-top: 0.4rem;
+  }
+
+  /* ── MUSIC ── */
+  .songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .song-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border: 1px solid rgba(232,160,176,0.25);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transition: background 0.2s;
+  }
+
+  .song-item:hover { background: var(--blush); }
+
+  .song-note { font-size: 1.4rem; }
+
+  .song-info .title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .song-info .artist {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── PERSONALITY TAGS ── */
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    background: var(--blush);
+    color: var(--deep-rose);
+    border: 1px solid rgba(196,98,122,0.2);
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .tag:hover {
+    background: var(--rose);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  /* ── MEMORIES ── */
+  .memories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 600px) { .memories-grid { grid-template-columns: 1fr; } }
+
+  .memory-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(232,160,176,0.3);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .memory-card:hover { transform: translateY(-3px); }
+
+  .memory-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    color: var(--blush);
+    position: absolute;
+    top: -1rem;
+    left: 0.5rem;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  .memory-card .date {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .memory-card .text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── NICKNAMES ── */
+  .nicknames-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .nickname {
+    background: var(--warm);
+    border: 1px solid rgba(201,169,110,0.3);
+    color: #7a5c2e;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s;
+  }
+
+  .nickname:hover { transform: rotate(-2deg) scale(1.05); }
+
+  /* ── FOOD ── */
+  .food-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .food-card {
+    flex: 1;
+    min-width: 140px;
+    background: white;
+    border: 1px solid rgba(232,160,176,0.3);
+    border-radius: 16px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .food-card:hover { transform: scale(1.04); }
+
+  .food-card .emoji { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+  .food-card .name { font-size: 0.9rem; font-weight: 500; }
+
+  /* ── ROUTINE ── */
+  .timeline {
+    margin-top: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.45rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.6rem;
+    top: 0.4rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--rose);
+  }
+
+  .tl-time {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--deep-rose);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-desc {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── LETTER ── */
+  .letter-box {
+    background: white;
+    border: 1px solid rgba(232,160,176,0.3);
+    border-radius: 24px;
+    padding: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text);
+    position: relative;
+  }
+
+  .letter-box::before {
+    content: '🌸';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+  }
+
+  .letter-sig {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--deep-rose);
+    text-align: right;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer .hearts {
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="petal-ring">🌸 🌷 🌸 🌷 🌸</span>
+  <p class="hero-tag">Best Friend Day Special Edition</p>
+  <h1 class="hero-name">Khushi <span>Bhardwaj</span></h1>
+  <p class="hero-sub">A girl made of Arijit songs, gol gappe & sage green eyes</p>
+  <p class="hero-dob">✦ Born 26 October 2009 ✦</p>
+  <p class="scroll-hint">↓ scroll to explore her story</p>
+</div>
+
+<!-- ABOUT -->
+<section class="reveal">
+  <p class="section-label">Chapter One</p>
+  <h2 class="section-title">Who is <em>Khushi?</em></h2>
+  <div class="divider">— 🌸 —</div>
+  <div class="about-grid">
+    <div class="about-card">
+      <span class="icon">👁️</span>
+      <div class="label">Eye Colour</div>
+      <div class="value">Sage Green — rare & beautiful</div>
+    </div>
+    <div class="about-card">
+      <span class="icon">🏫</span>
+      <div class="label">School</div>
+      <div class="value">RPM School (prev. St. John's)</div>
+    </div>
+    <div class="about-card">
+      <span class="icon">📚</span>
+      <div class="label">Currently</div>
+      <div class="value">Class 11th PCM — School Topper</div>
+    </div>
+    <div class="about-card">
+      <span class="icon">⚡</span>
+      <div class="label">Favourite Subject</div>
+      <div class="value">Physics</div>
+    </div>
+    <div class="about-card">
+      <span class="icon">☕</span>
+      <div class="label">Drink of Choice</div>
+      <div class="value">Hot Coffee — always</div>
+    </div>
+    <div class="about-card">
+      <span class="icon">✂️</span>
+      <div class="label">Hairstyle</div>
+      <div class="value">Feather Cut</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMICS -->
+<section class="reveal">
+  <p class="section-label">Chapter Two</p>
+  <h2 class="section-title">The <em>Brilliant</em> Mind</h2>
+  <div class="divider">— 🌷 —</div>
+  <div class="academics-section">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--muted); text-align:center; font-style:italic;">
+      She doesn't just study — she conquers. First rank, always. Every single time.
+    </p>
+    <div class="grades-row">
+      <div class="grade-badge">
+        <div class="class">Class 8th</div>
+        <div class="percent">99.55%</div>
+        <div class="note">🏆 School Top</div>
+      </div>
+      <div class="grade-badge">
+        <div class="class">Class 9th</div>
+        <div class="percent">97.7%</div>
+        <div class="note">🏆 School Top</div>
+      </div>
+      <div class="grade-badge">
+        <div class="class">Class 10th</div>
+        <div class="percent">96.8%</div>
+        <div class="note">🏆 School Top</div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:var(--muted); font-style:italic;">
+      ✦ Online batch instead of coaching now. Wakes at 5:00 AM on school days. The discipline is real. ✦
+    </p>
+  </div>
+</section>
+
+<!-- PERSONALITY -->
+<section class="reveal">
+  <p class="section-label">Chapter Three</p>
+  <h2 class="section-title">Her <em>Personality</em></h2>
+  <div class="divider">— 🌸 —</div>
+  <p style="color:var(--muted); line-height:1.8; font-family:'Cormorant Garamond',serif; font-size:1.1rem;">
+    She is polite, warm, and speaks with so much kindness — until you become a close friend. Then come the adorable nakhre, the mock anger, the theatrical naraazgi... and somehow all of it is just cute. She's the kind of person who will talk to her mummy when feeling low — and come back smiling. She rarely speaks in front of relatives, but with her best friend? Hours vanish.
+  </p>
+  <div class="tags-cloud">
+    <span class="tag">Polite & Warm</span>
+    <span class="tag">Secretly Dramatic</span>
+    <span class="tag">Deeply Trusted</span>
+    <span class="tag">Nakhrebaaz 💅</span>
+    <span class="tag">Ludo Quitter</span>
+    <span class="tag">Moon Lover</span>
+    <span class="tag">Mummy's Girl</span>
+    <span class="tag">Street Food Obsessed</span>
+    <span class="tag">Physics Nerd</span>
+    <span class="tag">Early Riser</span>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="reveal">
+  <p class="section-label">Chapter Four</p>
+  <h2 class="section-title">Her <em>Soundtrack</em></h2>
+  <div class="divider">— 🎵 —</div>
+  <p style="color:var(--muted); font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; margin-bottom:0.5rem;">
+    Arijit Singh is her favourite — and she doesn't just listen, she sings too.
+  </p>
+  <div class="songs-list" id="songs-list">
+    <div class="song-item" onclick="playSong('teer-fitoor')" style="cursor:pointer;">
+      <span class="song-note">🎵</span>
+      <div class="song-info">
+        <div class="title">Teer Fitoor</div>
+        <div class="artist">Arijit Singh — her favourite Arijit song</div>
+      </div>
+      <span class="play-btn" style="margin-left:auto; font-size:1.2rem;">▶</span>
+    </div>
+    <div class="song-item" onclick="playSong('mast-magan')" style="cursor:pointer;">
+      <span class="song-note">🎶</span>
+      <div class="song-info">
+        <div class="title">Mast Magan</div>
+        <div class="artist">Arijit Singh</div>
+      </div>
+      <span class="play-btn" style="margin-left:auto; font-size:1.2rem;">▶</span>
+    </div>
+    <div class="song-item" onclick="playSong('kishore-prank')" style="cursor:pointer;">
+      <span class="song-note">🎼</span>
+      <div class="song-info">
+        <div class="title">Dekha Ek Khwab &amp; Saagar Jaisi Aankhon Wali</div>
+        <div class="artist">Kishore Kumar — classic taste ✨ (click to play 😏)</div>
+      </div>
+      <span class="play-btn" style="margin-left:auto; font-size:1.2rem;">▶</span>
+    </div>
+    <div class="song-item" onclick="playSong('tere-mast')" style="border-color: var(--rose); background: var(--blush); cursor:pointer;">
+      <span class="song-note">❤️</span>
+      <div class="song-info">
+        <div class="title">Tere Mast Mast Do Nain</div>
+        <div class="artist">All-time favourite across all singers</div>
+      </div>
+      <span class="play-btn" style="margin-left:auto; font-size:1.2rem;">▶</span>
+    </div>
+  </div>
+
+  <!-- Kishore Prank Popup -->
+  <div id="prank-popup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; border-radius:24px; padding:2.5rem 2rem; max-width:360px; width:90%; text-align:center; position:relative; border: 2px solid var(--rose);">
+      <div style="font-size:3rem; margin-bottom:1rem;">😂</div>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--text); margin-bottom:0.75rem; font-style:italic;">"Haha listen my fav Kishore Kumar's song!"</p>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1.5rem;">— playing: <strong>Pal Pal Dil Ke Paas</strong> 🎵</p>
+      <button onclick="closePrank()" style="background:var(--deep-rose); color:white; border:none; border-radius:999px; padding:0.6rem 1.5rem; font-size:0.9rem; cursor:pointer;">Okay okay 😄</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD -->
+<section class="reveal">
+  <p class="section-label">Chapter Five</p>
+  <h2 class="section-title">Her <em>Heart Foods</em></h2>
+  <div class="divider">— 🍽️ —</div>
+  <div class="food-row">
+    <div class="food-card">
+      <span class="emoji">🫶</span>
+      <div class="name">Gol Gappe</div>
+      <div style="font-size:0.75rem; color:var(--deep-rose); margin-top:4px;">ALL TIME FAV</div>
+    </div>
+    <div class="food-card">
+      <span class="emoji">🍛</span>
+      <div class="name">Chole Bhature</div>
+    </div>
+    <div class="food-card">
+      <span class="emoji">🧀</span>
+      <div class="name">Paneer Sabji</div>
+    </div>
+    <div class="food-card">
+      <span class="emoji">🥔</span>
+      <div class="name">Aloo ke Parathe</div>
+      <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">She makes them herself!</div>
+    </div>
+    <div class="food-card">
+      <span class="emoji">☕</span>
+      <div class="name">Hot Coffee</div>
+      <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Her daily ritual</div>
+    </div>
+    <div class="food-card">
+      <span class="emoji">🎂</span>
+      <div class="name">Oreo Cake</div>
+      <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Baked it herself on 5 June!</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section class="reveal">
+  <p class="section-label">Chapter Six</p>
+  <h2 class="section-title">Our <em>Special Moments</em></h2>
+  <div class="divider">— 🌸 —</div>
+  <div class="memories-grid">
+    <div class="memory-card">
+      <div class="date">23 July 2024</div>
+      <div class="text">The day she made the first move — called first on WhatsApp at 4:10 PM. That call changed everything.</div>
+    </div>
+    <div class="memory-card">
+      <div class="date">19 Jan 2025</div>
+      <div class="text">1 hr 46 min teaching Quadrilaterals together. When studying became our excuse to talk.</div>
+    </div>
+    <div class="memory-card">
+      <div class="date">24 Feb 2026</div>
+      <div class="text">Our longest call ever — 3 hours, 46 minutes, 13 seconds. What even was time that day?</div>
+    </div>
+    <div class="memory-card">
+      <div class="date">17 Feb 2026</div>
+      <div class="text">Our very first handshake. Simple, but forever special. 🤝</div>
+    </div>
+    <div class="memory-card">
+      <div class="date">31 May 2025</div>
+      <div class="text">She made the moon come out after so long. Some things only she can do.</div>
+    </div>
+    <div class="memory-card">
+      <div class="date">5 June 2026</div>
+      <div class="text">She baked an Oreo cake with her own hands. A chef was born. 🎂</div>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:1.5rem; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--muted); font-size:1rem;">
+    ✦ Total talk time together: 500+ hours and still counting ✦
+  </p>
+</section>
+
+<!-- NICKNAMES -->
+<section class="reveal">
+  <p class="section-label">Chapter Seven</p>
+  <h2 class="section-title">Her Many <em>Names</em></h2>
+  <div class="divider">— 🐈 —</div>
+  <p style="color:var(--muted); font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic;">
+    She has more names than anyone deserves — and every one of them fits perfectly.
+  </p>
+  <div class="nicknames-wrap">
+    <span class="nickname">Khushi Ji ✨</span>
+    <span class="nickname">Madam Ji 👩‍🏫</span>
+    <span class="nickname">Maalkin 👑</span>
+    <span class="nickname">Muralika 🎭</span>
+    <span class="nickname">Cutie Patuti 🌸</span>
+    <span class="nickname">Chooku Poooku 🎀</span>
+    <span class="nickname">Koochu Poochu 🌷</span>
+    <span class="nickname">Panda 🐼</span>
+    <span class="nickname">Billi 🐈</span>
+    <span class="nickname">Mam 📚</span>
+    <span class="nickname">Bachcha 🍼</span>
+    <span class="nickname">Sweetie 🍬</span>
+  </div>
+  <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--muted); font-style:italic; text-align:center;">
+    She calls me: Bandar 🐒 · Nakalchi Bandar · Ullu · Saheli · Sir (sometimes)
+  </p>
+</section>
+
+<!-- DAILY ROUTINE -->
+<section class="reveal">
+  <p class="section-label">Chapter Eight</p>
+  <h2 class="section-title">Her <em>Beautiful Routine</em></h2>
+  <div class="divider">— ⏰ —</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">5:00 AM</div>
+      <div class="tl-desc">Wakes up on school days — while the rest of the world sleeps 😌</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">~8:00 AM</div>
+      <div class="tl-desc">On holidays, she allows herself a gentle morning</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">2:30 PM</div>
+      <div class="tl-desc">Returns from school, eats, refreshes, recharges</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">till whenever</div>
+      <div class="tl-desc">Power nap for however long she want to rest 💤</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">after nap – 6:00 PM</div>
+      <div class="tl-desc">Best friend time 🌸 — afternoon calls, random talks, dil ki baatein</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">6:00 – 10:00 PM</div>
+      <div class="tl-desc">Online batch — Physics, Chemistry & Maths await the topper 📖</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">at some point of time</div>
+      <div class="tl-desc"> songs, mummy talks, and gol gappe dreams 🌸</div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="reveal">
+  <p class="section-label">Chapter Nine</p>
+  <h2 class="section-title">A Letter <em>For Her</em></h2>
+  <div class="divider">— 💌 —</div>
+  <div class="letter-box">
+    <p>Dear Khushi Ji,</p>
+    <br>
+    <p>
+      You came into this story quietly — a question in class, a text message at 4:13 PM, a call that wasn't picked up. And yet here we are, 500+ hours of conversations later, still finding things to say.
+    </p>
+    <br>
+    <p>
+      You are someone who tops every class without losing her warmth. Who wakes at 5 AM and still finds time to watch the moon. Who makes the people around her feel like they matter — really matter — just by the way you talk. Politely, purely, with all of yourself.
+    </p>
+    <br>
+    <p>
+      You love Arijit like he's singing just for you. You exit Ludo when you're losing (and we all know it 😄). You made an Oreo cake with your own hands. You called first. You always show up.
+    </p>
+    <br>
+    <p>
+      On this Best Friend Day — this page is yours. A small corner of the internet that says: <em>Khushi Bhardwaj existed here, and she made life better.</em>
+    </p>
+    <br>
+    <p>Happy Best Friend Day, Madam Ji. 🌸</p>
+    <div class="letter-sig">— Your Bandar 🐒, always 💛</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="hearts">🌸 🌷 💛 🌷 🌸</span>
+  <p>Made with love for Khushi Bhardwaj</p>
+  <p style="font-size:0.85rem; margin-top:0.5rem; opacity:0.6;">Best Friend Day · 2026</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  const songFiles = {
+    'teer-fitoor': 'Tera Fitoor Genius 320 Kbps.mp3',
+    'mast-magan': 'Mast Magan 2 States 320 Kbps.mp3',
+    'kishore-prank': 'Pal Pal Dil Ke Paas_320(KoshalWorld.Com).mp3',
+    'tere-mast': 'Tere Mast Mast Do Nain Dabangg 320 Kbps.mp3'
+  };
+
+  let currentAudio = null;
+  let currentBtn = null;
+  let currentId = null;
+
+  function playSong(id) {
+    const btn = event.currentTarget.querySelector('.play-btn');
+    if (id === 'kishore-prank') {
+      document.getElementById('prank-popup').style.display = 'flex';
+      toggleAudio(id, btn);
+      return;
+    }
+    toggleAudio(id, btn);
+  }
+
+  function toggleAudio(id, btn) {
+    if (currentAudio && currentId === id) {
+      if (currentAudio.paused) {
+        currentAudio.play();
+        if (btn) btn.textContent = '⏸';
+      } else {
+        currentAudio.pause();
+        if (btn) btn.textContent = '▶';
+      }
+      return;
+    }
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      if (currentBtn) currentBtn.textContent = '▶';
+    }
+    const audio = new Audio(songFiles[id]);
+    audio.play().catch(() => {
+      alert('Could not play: ' + songFiles[id] + '\nMake sure the HTML file and MP3 files are in the same folder.');
+    });
+    currentAudio = audio;
+    currentBtn = btn;
+    currentId = id;
+    if (btn) btn.textContent = '⏸';
+    audio.onended = () => {
+      if (btn) btn.textContent = '▶';
+      currentAudio = null; currentBtn = null; currentId = null;
+    };
+  }
+
+  function closePrank() {
+    document.getElementById('prank-popup').style.display = 'none';
+  }
+</script>
+</body>
+</html>
